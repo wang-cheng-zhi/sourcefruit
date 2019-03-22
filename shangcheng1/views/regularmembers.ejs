@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>澄园商城</title>
+  <!-- Bootstrap Styles-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+  <!-- FontAwesome Styles-->
+ <link href="/assets/css/font-awesome.css" rel="stylesheet" />
+  <!-- Morris Chart Styles-->
+ <link href="/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+     <!-- Custom Styles-->
+ <link href="/assets/css/custom-styles.css" rel="stylesheet" />
+ <link href="/stylesheets/regularmembers.css" rel="stylesheet" />
+  <!-- Google Fonts-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+  <div  id="wrapper">
+      <% include common.ejs %>
+      <div id="page-wrapper" >
+          <div id="page-inner">
+			        <div class="row">
+                <div class="col-md-12">
+                  <h1 class="page-header">
+                     澄园果园 <small>澄园在线</small>
+                  </h1>
+                </div>
+              </div> 
+                 <!-- /. ROW  -->	
+			        <div class="row">
+                <div class="col-md-12">   
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                       个人信息
+                    </div> 
+                    <div class="col-md-4">
+                    <!--    Context Classes  -->
+                       <div class="panel panel-default personal-list">
+                          <img src="" class="personal-img"/>
+                       </div>
+                   <!--  end  Context Classes  -->
+                     </div>   
+                <div class="col-md-8">
+                    <!--    Context Classes  -->
+                   <div class="panel panel-default">
+                       <div class="panel-body">
+                           <div class="table-responsive">
+                              <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+                                  <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="name" placeholder="安室">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-2 control-label">身份证号码</label>
+                                  <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="sfz" placeholder="323256456123565689">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-2 control-label">联系方式</label>
+                                  <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="phonenumber" placeholder="13323564668">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-2 control-label">入职时间</label>
+                                  <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="rzsj" placeholder="2018-03-13">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-2 control-label">学历</label>
+                                  <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="xueli" placeholder="本科">
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-2 control-label">目前状态</label>
+                                  <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="gongzuo" placeholder="在职">
+                                  </div>
+                              </div>
+                           </div>
+                        <button class="btn btn-primary">提交</button>
+                        <button class="btn btn-danger">修改</button>
+                       </div>
+                   </div>
+                   <!--  end  Context Classes  -->
+               </div>  
+				  </div>
+			</div>
+  </div>
+  <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="/assets/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+    $(function(){
+      var $ul = $("#main-menu");
+      //console.log($ul.children().find("a"))
+      $ul.children().find("a").removeClass().eq(2).addClass("active-menu") 
+    })
+    </script>
+      <!-- Bootstrap Js -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="/assets/js/jquery.metisMenu.js"></script>
+     <!-- Morris Chart Js -->
+     <script src="/assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="/assets/js/morris/morris.js"></script>
+      <!-- Custom Js -->
+    <!--<script src="/assets/js/custom-scripts.js"></script>-->
+</body>
+</html>

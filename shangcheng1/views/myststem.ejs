@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>澄园商城</title>
+	<!-- Bootstrap Styles-->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="/assets/css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <% include common.ejs %>
+        <!-- /. NAV SIDE  -->
+
+        <div id="page-wrapper" >
+            <div id="page-inner">
+			  <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            澄园果园 <small>澄园在线</small>
+                        </h1>
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           设置
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-9">
+                                    <h4>系统设置</h4>
+                                    <form role="form">
+                                        <div class="form-group has-success">
+                                            <label class="control-label" for="inputSuccess">澄园信息</label>
+                                            <input type="text" class="form-control" id="inputSuccess">
+                                        </div>
+                                        <div class="form-group has-warning">
+                                            <label class="control-label" for="inputWarning">澄园公告</label>
+                                            <input type="text" class="form-control" id="inputWarning">
+                                        </div>
+                                        <div class="form-group has-error">
+                                            <label class="control-label" for="inputError">澄园商城</label>
+                                            <input type="text" class="form-control" id="inputError">
+                                        </div>
+                                        <div class="form-group has-error">
+                                            <label class="control-label" for="inputError">商城商品</label>
+                                            <input type="text" class="form-control" id="inputError">
+                                        </div>
+                                    </form>    
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+
+                        <!-- /.panel-body -->
+                    </div>
+                    
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			</div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="/assets/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+    $(function(){
+      var $ul = $("#main-menu");
+      //console.log($ul.children())
+      $ul.children().find("a").removeClass().eq(6).addClass("active-menu")
+    })
+     </script>
+
+      <!-- Bootstrap Js -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="/assets/js/jquery.metisMenu.js"></script>
+      <!-- Custom Js -->
+    <!---<script src="/assets/js/custom-scripts.js"></script>-->
+    
+   
+</body>
+</html>

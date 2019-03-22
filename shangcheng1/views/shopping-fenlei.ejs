@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>澄园商城</title>
+  <!-- Bootstrap Styles-->
+  <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+  <!-- FontAwesome Styles-->
+ <link href="/assets/css/font-awesome.css" rel="stylesheet" />
+  <!-- Morris Chart Styles-->
+ <link href="/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+     <!-- Custom Styles-->
+ <link href="/assets/css/custom-styles.css" rel="stylesheet" />
+ <link href="/stylesheets/shopping-fenlei.css" rel="stylesheet" />
+  <!-- Google Fonts-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+  <div id="wrapper">
+      <% include common.ejs %>
+      <div id="page-wrapper" >
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             商品分类
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>商品编号</th>
+                                            <th>商品名称</th>
+                                            <th>商品数量</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="zhanshi">
+                                      <% data.forEach(function(item,i){ %>
+                                        <tr class="odd gradeX">
+                                            <td class="bianhao"><%=  item.bianhao %></td>
+                                            <td class="name"><%= item.name %></td>
+                                            <td class="center number"><%= item.number %></td>
+                                            <td>
+                                               <div class="form-group">
+                                                  <a  class="xiugai btn btn-primary" 
+                                                  href="/goods/xiugai1?id=<%= item.bianhao %>">修改</a>
+                                                  <button  class="del btn btn-danger">删除</button>
+                                                </div> 
+                                            </td>
+                                        </tr>    
+                                      <% })%>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                <h4>添加分类</h4>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">商品编号</label>
+                                    <input type="text" class="form-control" id="bianhao" placeholder="请输入商品编号">
+                                  </div>
+                                  <label for="exampleInputEmail1">商品名称</label>
+                                  <input type="text" class="form-control" id="sp" placeholder="请输入商品名称">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">商品数量</label>
+                                  <input type="text" class="form-control" id="sl" placeholder="请输入商品数量">
+                                </div>
+                                
+                                <button type="button" class="btn btn-default add">添加分类</button>
+                           </div>
+                        </div>
+                    </div>        
+                        
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+          </div> 
+      </div>  
+  </div>
+   <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="/assets/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+    $(function(){
+      var $ul = $("#main-menu");
+      //console.log($ul.children().find("a"))
+      $ul.children().find("a").removeClass().eq(10).addClass("active-menu") 
+    })
+    </script>
+      <!-- Bootstrap Js -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="/assets/js/jquery.metisMenu.js"></script>
+     <!-- Morris Chart Js -->
+    <script src="/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="/assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script>
+    
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+            $(".add").click(function(){
+              $.ajax({
+                type:"post",
+                url:"/goods/type",
+                data:{sp:$("#sp").val(),sl:$("#sl").val(),bianhao:$("#bianhao").val()},
+                success:function(data){
+                  if(data.code == 0){
+                    $(".zhanshi").append(
+                      `<tr class="odd gradeX">
+                      <td>${$("#bianhao").val()}</td>
+                      <td class="name">${$("#sp").val()}</td>
+                      <td class="center">${$("#sl").val()}</td>
+                      <td>
+                         <div class="form-group">
+                            <button type="button" class="btn btn-primary">修改</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                          </div> 
+                      </td>
+                  </tr>  `
+                    )
+                    history.go(0)
+                  }
+                }
+              })
+            });
+          $(".del").click(function(){
+              var _this = this;
+              //var str = $(this).parents("tr").find(".name").text()
+              $.ajax({
+                type:"delete",
+                url:"/goods/del1",
+                data:{name:$(_this).parents("tr").find(".name").text(),
+                      number:$(_this).parents("tr").find(".number").text(),
+                      bianhao:$(_this).parents("tr").find(".bianhao").text(),
+                    },
+                success:function(data){
+                  if(data.code == 0){
+                    $(_this).parents("tr").remove()
+                  }else{
+                    console.log("删除失败")
+                  }
+                }
+              })
+            })
+
+           
+
+
+
+    </script>
+      <!-- Custom Js -->
+    <!---<script src="/assets/js/custom-scripts.js"></script>-->
+    
+</body>
+</html>
